@@ -299,6 +299,11 @@ bioData SparkFun_Bio_Sensor_Hub::readSensor(){
   libLedFifo.redLed |= uint32_t(senArr[4]) << 8;
   libLedFifo.redLed |= senArr[5];
 
+  // Value of LED three...
+  libLedFifo.greenLed = uint32_t(senArr[6]) << 16;
+  libLedFifo.greenLed |= uint32_t(senArr[7]) << 8;
+  libLedFifo.greenLed |= senArr[8];
+  
   return libLedFifo;
 
 }
@@ -323,6 +328,11 @@ bioData SparkFun_Bio_Sensor_Hub::readSensorBpm(){
     libLedBpm.redLed = uint32_t(bpmSenArr[3]) << 16;
     libLedBpm.redLed |= uint32_t(bpmSenArr[4]) << 8;
     libLedBpm.redLed |= bpmSenArr[5];
+    
+    // Value of LED three...
+    libLedBpm.greenLed = uint32_t(bpmSenArr[6]) << 16;
+    libLedBpm.greenLed |= uint32_t(bpmSenArr[7]) << 8;
+    libLedBpm.greenLed |= bpmSenArr[8];
 
     // -- What happened here? -- There are two uint32_t values that are given by
     // the sensor for LEDs that do not exists on the MAX30101. So we have to
